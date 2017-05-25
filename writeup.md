@@ -1,6 +1,7 @@
 ## Advanced Lane Finding Writeup 
+
 In this writeup I will summerize the steps taken to complete the project and arrive to the final video included in this repo.
----
+
 
 **Advanced Lane Finding Project**
 
@@ -59,7 +60,8 @@ I then apply the same calibration matrix to undistort images of the lane lines t
 
 
 ## Masking
-
+As the next step I masked the regions of the image that do not contain lane lines. I set all the corners of the mask as ```vertices```. The shape of the mask applied to all frames is:
+![alt text][mask]
 
 ## Thresholding
 
