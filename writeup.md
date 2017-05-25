@@ -1,9 +1,7 @@
-## Advanced Lane Finding Writeup 
+## Advanced Lane Finding 
 
 In this writeup I will summerize the steps taken to complete the project and arrive to the final video included in this repo.
 
-
-**Advanced Lane Finding Project**
 
 The goals / steps of this project are the following:
 
