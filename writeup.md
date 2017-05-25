@@ -19,7 +19,7 @@ I will explain each step in more details supported by figures in the following. 
 
 [//]: # (Image References)
 
-[binary_bird_drivee]: ./writeup_images/binary_driver_and_birds.png 
+[binary_bird_drive]: ./writeup_images/binary_driver_and_birds.png 
 [first_frame_fit]: ./writeup_images/binary_first_frame_fit.png 
 [second_frame_fit]: ./writeup_images/binary_second_frame_fit.png 
 [CB_after_perspective]: ./writeup_images/chess_board_after_pt.png 
@@ -49,7 +49,7 @@ I will explain each step in more details supported by figures in the following. 
 ## Camera Calibration
 The first step of the pipeline is to correct for the distortion caused by camera lenses on the frames taken by the dashcam.
 In order remove this distortion, we were provided of a set of chessboard images taken from the same camera at different angles. 
-Using cv2 functions such as ```cv2.findChessboardCorners``` I got a a list of object points and image points to be then used with ```cv2.calibrateCamera``` to get calibration matrix for the camera. The matrix is then used to correct for the distortion caused by camera lens.
+Using cv2 functions such as ```cv2.findChessboardCorners()``` I got a a list of object points and image points to be then used with ```cv2.calibrateCamera()``` to get calibration matrix for the camera. The matrix is then used to correct for the distortion caused by camera lens.
 The result of this correction can be seen in the figure below:
 ![alt text][CB_before_after_calib]
 As it can be seen the rounded edges of the chessboard pattern get straghtened after undistorting the images with the calibration matrix.
@@ -65,7 +65,7 @@ As the next step I masked the regions of the image that do not contain lane line
 ## Thresholding
 In this stage, the goal is to arrive at a binary image where the lane lines are the most pronounced and the pixel value all other regions are the image is nearly zero. In order to achive this task, I process each image and take gradient in different orientations, take the direction and magnitude of that gradiant. Also looking at the image in HSL space and focusing on S channel (Saturtation) seems to be a powerful way of isolating the lane line. In the end I make a combined image where each of these individual thresholds contibute to the final binary image.
 ### Gradiant Thresholding
-I first conver the color image to gray scale. Then I take the gradiant of the image in x and y direction enhancing vertical and horizontal lines respectively using ```cv2.Sobel``` function. I also take the gradiant and magnitude of gradiant at each pixel.
+I first conver the color image to gray scale. Then I take the gradiant of the image in x and y direction enhancing vertical and horizontal lines respectively using ```cv2.Sobel()``` function. I also take the gradiant and magnitude of gradiant at each pixel.
 The results of each of these operations are shown below:
 
 ![alt text][sobel_x_thresh]
@@ -98,8 +98,17 @@ The figure below shows the result of the combination of thresholding steps.
 
 
 ## Perspective Transform
+In the next step the goal is to transform the point of view of the image from the dashcam (almost driver's point of view) to bird's eye view, so that the effect of converging lines is removed and any curvature in the lines represent the real curvature of the lines.
 
+For this purpose I use ```cv2.getPerspectiveTransform()``` which takes a set of source and destination coordinates and returns a transformation matrix which maps the image from driver's point of view to bird's eye view.
+I have selected the source (blue) and destination (red) points as below:
+![alt text][persp_t_coordinates]
 
+The figure below shows the two perspectives in color images where it can be seen that the lane lines appear nearly parallel:
+![alt text][driver_and_birdseye]
+
+While this figure shows the two perspectives in binary image which was the result of combined thresholing from the previous stage of the pipeline. 
+![alt text][binary_and_birdseye]
 ## Fitting Polylines Lane Lines
 
 ### First Frame
