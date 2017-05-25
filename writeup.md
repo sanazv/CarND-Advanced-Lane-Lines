@@ -59,21 +59,43 @@ I then apply the same calibration matrix to undistort images of the lane lines t
 
 ## Masking
 As the next step I masked the regions of the image that do not contain lane lines. I set all the corners of the mask as ```vertices```. The shape of the mask applied to all frames is:
+
 ![alt text][mask]
 
 ## Thresholding
-
+In this stage, the goal is to arrive at a binary image where the lane lines are the most pronounced and the pixel value all other regions are the image is nearly zero. In order to achive this task, I process each image and take gradient in different orientations, take the direction and magnitude of that gradiant. Also looking at the image in HSL space and focusing on S channel (Saturtation) seems to be a powerful way of isolating the lane line. In the end I make a combined image where each of these individual thresholds contibute to the final binary image.
 ### Gradiant Thresholding
+I first conver the color image to gray scale. Then I take the gradiant of the image in x and y direction enhancing vertical and horizontal lines respectively using ```cv2.Sobel``` function. I also take the gradiant and magnitude of gradiant at each pixel.
+The results of each of these operations are shown below:
+
+![alt text][sobel_x_thresh]
+![alt text][sobel_y_thresh]
+![alt text][sobel_mag_thresh]
+![alt text][sobel_dir_thresh]
+
 
 ### Color Thresholding
+Also looking at the images in HSL colorspace, indicates that lanelines (especially the yellow ones), appear nicely in S channel. For this reason I convert the images from RGB to HSL colorspace using ```cv2.cvtColor(image, cv2.COLOR_RGB2HSL)```
+and then take the S channel and apply threshold values to it.
+The figure below shows the impact of thresholding S channel:
 
+![alt text][color_thresh]
+
+As it can be seen the lane lines apprear clearly.
 ### Combined Binary Image
-| Source        | Destination   | 
+Finally I combine all these indiviual thresholded binary images to make one final image. Below I listed the threshold values and kernel sizes for each indivudual layer.
+
+| Conversion        | Kernel   | Threshold min  | Threshold max   | 
 |:-------------:|:-------------:| 
-| 585, 460      | 320, 0        | 
-| 203, 720      | 320, 720      |
-| 1127, 720     | 960, 720      |
-| 695, 460      | 960, 0        |
+| Gradiant x      | 9       | 20 | 200 |
+| Gradiant y      | 9       | 20 | 200 |
+| Gradiant direction     | 11     | 40 | 200 |
+| Gradiant magnitude      | 11    | 0.7 | 1.3 |
+| Color S channel      | --        | 85 | 255 |
+
+The figure below shows the result of the combination of thresholding steps. 
+![alt text][combined_thresh]
+
 
 ## Perspective Transform
 
