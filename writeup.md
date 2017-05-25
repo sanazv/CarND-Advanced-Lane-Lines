@@ -19,12 +19,29 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./examples/undistort_output.png "Undistorted"
-[image2]: ./test_images/test1.jpg "Road Transformed"
-[image3]: ./examples/binary_combo_example.jpg "Binary Example"
-[image4]: ./examples/warped_straight_lines.jpg "Warp Example"
-[image5]: ./examples/color_fit_lines.jpg "Fit Visual"
-[image6]: ./examples/example_output.jpg "Output"
+[image1]: ./writeup_images/binary_driver_and_birds.png "Undistorted"
+[image2]: ./writeup_images/binary_first_frame_fit.png "Road Transformed"
+[image3]: ./writeup_images/binary_second_frame_fit.png "Binary Example"
+[image4]: ./writeup_images/chess_board_after_pt.png "Warp Example"
+[image5]: ./writeup_images/chessboard_before_after_calib.png "Fit Visual"
+[image6]: ./writeup_images/chess_board_before_pt.png "Output"
+
+[image1]: ./writeup_images/Color_threshold.png "Undistorted"
+[image2]: ./writeup_images/driver_and_birdseye_view.png "Road Transformed"
+[image3]: ./writeup_images/finding_corners.png "Binary Example"
+[image4]: ./writeup_images/image_and_combined_threshold.png "Warp Example"
+[image5]: ./writeup_images/image_and_green_lanes.png "Fit Visual"
+[image6]: ./writeup_images/mask_file.png "Output"
+
+
+[image1]: ./writeup_images/persp_transform_coords_for_vidframes.png "Undistorted"
+[image2]: ./writeup_images/Sobel_direction.png "Road Transformed"
+[image3]: ./writeup_images/Sobel_direction_x.png "Binary Example"
+[image4]: ./writeup_images/Sobel_direction_y.png "Warp Example"
+[image5]: ./writeup_images/Sobel_magnitude.png "Fit Visual"
+[image6]: ./writeup_images/testimage_before_after_calib.png "Output"
+
+
 [video1]: ./project_video.mp4 "Video"
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/571/view) Points
