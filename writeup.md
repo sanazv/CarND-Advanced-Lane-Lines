@@ -16,7 +16,7 @@ The goals / steps of this project are the following:
 * Output visual display of the lane boundaries and numerical estimation of lane curvature and vehicle position.
 * Apply the resulting pipeline to video frames and combine the results to a final video, with the goal of detected lines displaying the lane lines correctly without much wobble.
 
-I will explain each step in more details supported by figures in the following.
+I will explain each step in more details supported by figures in the following. The code for all these steps is also in this repo: 'Advanced_Lane_Finding.ipynb'
 
 [//]: # (Image References)
 
@@ -48,7 +48,14 @@ I will explain each step in more details supported by figures in the following.
 
 
 ## Camera Calibration
-
+The first step of the pipeline is to correct for the distortion caused by camera lenses on the frames taken by the dashcam.
+In order remove this distortion, we were provided of a set of chessboard images taken from the same camera at different angles. 
+Using cv2 functions such as ```cv2.findChessboardCorners``` I got a a list of object points and image points to be then used with ```cv2.calibrateCamera``` to get calibration matrix for the camera. The matrix is then used to correct for the distortion caused by camera lens.
+The result of this correction can be seen in the figure below:
+![alt text][CB_before_after_calib]
+As it can be seen the rounded edges of the chessboard pattern get straghtened after undistorting the images with the calibration matrix.
+I then apply the same calibration matrix to undistort images of the lane lines taken by the same camera. The figure below shows the effetcs of undistortion on one of the test images:
+![alt text][test_camera_calib]
 
 
 ## Masking
