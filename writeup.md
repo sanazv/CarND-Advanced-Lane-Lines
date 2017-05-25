@@ -15,7 +15,7 @@ The goals / steps of this project are the following:
 * Output visual display of the lane boundaries and numerical estimation of lane curvature and vehicle position.
 * Apply the resulting pipeline to video frames and combine the results to a final video, with the goal of detected lines displaying the lane lines correctly without much wobble.
 
-I will explain each step in more details supported by figures in the following. The code for all these steps is also in this repo: 'Advanced_Lane_Finding.ipynb'
+I will explain each step in more details supported by figures in the following. The code for all these steps is also in this repo: *Advanced_Lane_Finding.ipynb*
 
 [//]: # (Image References)
 
@@ -86,7 +86,7 @@ As it can be seen the lane lines apprear clearly.
 Finally I combine all these indiviual thresholded binary images to make one final image. Below I listed the threshold values and kernel sizes for each indivudual layer.
 
 | Conversion        | Kernel   | Threshold min  | Threshold max   | 
-|:-------------:|:-------------:| 
+|:-------------:|:-------------:|:-------------:|:-------------:| 
 | Gradiant x      | 9       | 20 | 200 |
 | Gradiant y      | 9       | 20 | 200 |
 | Gradiant direction     | 11     | 40 | 200 |
@@ -94,7 +94,7 @@ Finally I combine all these indiviual thresholded binary images to make one fina
 | Color S channel      | --        | 85 | 255 |
 
 The figure below shows the result of the combination of thresholding steps. 
-![alt text][combined_thresh]
+![alt text][combined_threshold]
 
 
 ## Perspective Transform
