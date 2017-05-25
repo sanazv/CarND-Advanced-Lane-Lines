@@ -145,6 +145,6 @@ The result for a sample frame is shown below:
 ## Video Processing
 And finally the entire pipeline is applied to all frames of the video provided and the results can be found in *finding_advanced_lanes.mp4* file.
 
-
-
+### Future work
+In the next stages, I would like to experiment with the convolution methos rather than sliding windows. Also applying the same pipeline to the more challenging videos. 
 
