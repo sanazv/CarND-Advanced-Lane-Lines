@@ -19,30 +19,30 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./writeup_images/binary_driver_and_birds.png "Undistorted"
-[image2]: ./writeup_images/binary_first_frame_fit.png "Road Transformed"
-[image3]: ./writeup_images/binary_second_frame_fit.png "Binary Example"
-[image4]: ./writeup_images/chess_board_after_pt.png "Warp Example"
-[image5]: ./writeup_images/chessboard_before_after_calib.png "Fit Visual"
-[image6]: ./writeup_images/chess_board_before_pt.png "Output"
+[binary_bird_drivee]: ./writeup_images/binary_driver_and_birds.png 
+[first_frame_fit]: ./writeup_images/binary_first_frame_fit.png 
+[second_frame_fit]: ./writeup_images/binary_second_frame_fit.png 
+[CB_after_perspective]: ./writeup_images/chess_board_after_pt.png 
+[CB_before_after_calib]: ./writeup_images/chessboard_before_after_calib.png 
+[CB_before_perspective]: ./writeup_images/chess_board_before_pt.png 
 
-[image1]: ./writeup_images/Color_threshold.png "Undistorted"
-[image2]: ./writeup_images/driver_and_birdseye_view.png "Road Transformed"
-[image3]: ./writeup_images/finding_corners.png "Binary Example"
-[image4]: ./writeup_images/image_and_combined_threshold.png "Warp Example"
-[image5]: ./writeup_images/image_and_green_lanes.png "Fit Visual"
-[image6]: ./writeup_images/mask_file.png "Output"
-
-
-[image1]: ./writeup_images/persp_transform_coords_for_vidframes.png "Undistorted"
-[image2]: ./writeup_images/Sobel_direction.png "Road Transformed"
-[image3]: ./writeup_images/Sobel_direction_x.png "Binary Example"
-[image4]: ./writeup_images/Sobel_direction_y.png "Warp Example"
-[image5]: ./writeup_images/Sobel_magnitude.png "Fit Visual"
-[image6]: ./writeup_images/testimage_before_after_calib.png "Output"
+[color_thresh]: ./writeup_images/Color_threshold.png 
+[driver_and_birdseye]: ./writeup_images/driver_and_birdseye_view.png 
+[finding_corners]: ./writeup_images/finding_corners.png 
+[combined_threshold]: ./writeup_images/image_and_combined_threshold.png 
+[image_green_lanes]: ./writeup_images/image_and_green_lanes.png 
+[mask]: ./writeup_images/mask_file.png 
 
 
-[video1]: ./project_video.mp4 "Video"
+[image1]: ./writeup_images/persp_transform_coords_for_vidframes.png 
+[sobel_dir_thresh]: ./writeup_images/Sobel_direction.png 
+[sobel_x_thresh]: ./writeup_images/Sobel_direction_x.png 
+[sobel_y_thresh]: ./writeup_images/Sobel_direction_y.png 
+[Sobel_mag_thresh]: ./writeup_images/Sobel_magnitude.png 
+[test_camera_calib]: ./writeup_images/testimage_before_after_calib.png 
+
+
+[video1]: ./finding_advanced_lanes.mp4 "Video"
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/571/view) Points
 
